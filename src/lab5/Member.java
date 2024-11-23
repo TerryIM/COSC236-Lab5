@@ -3,7 +3,7 @@ package lab5;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Member implements Book{
+public class Member{
 
 	private String name;
 	private ArrayList<Book> borrowedBooks; // Book class dependency
@@ -24,13 +24,13 @@ public class Member implements Book{
 	public String toString() {
 		return "Member: " + name;
 	}
-	public void borrowBook(String book) {
+	public void borrowBook(Book book) {
 		if (book != null && book.getIsAvailable() == true) {
 			borrowedBooks.add(book);
 			book.setIsAvailable(false);
 		}
 	}
-	public void returnBook(String book) {
+	public void returnBook(Book book) {
 		if (book != null) {
 			borrowedBooks.remove(book);
 			book.setIsAvailable(true);
