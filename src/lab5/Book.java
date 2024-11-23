@@ -5,6 +5,6 @@ public interface Book {
 	
 	public String getTitle();
 	public boolean getIsAvailable();
-	public boolean setIsAvailable();
+	public void setIsAvailable(boolean isAvailable);
 	public String toString();
 }
