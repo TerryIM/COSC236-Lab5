@@ -16,8 +16,18 @@ public class LibrarianController {
 	public void showMembers() {
 		library.showMembers();
 	}
-	public void addBook(String title) {
+	public void addPaperBook(String title) {
 		library.addBook(new PaperBook(title));  // Book class constructor dependency
+	}
+	public void addEBook(String title) {
+		library.addBook(new Ebook(title));  // Book class constructor dependency
+		
+	}
+	public void addAudioBook(String title) {
+		library.addBook(new AudioBook(title));  // Book class constructor dependency
+	}
+	public void addRareBook(String title) {
+		library.addBook(new RareBook(title));  // Book class constructor dependency
 	}
 	public void addMember(String name) {
 		library.addMember(new Member(name)); // Member class constructor dependency
