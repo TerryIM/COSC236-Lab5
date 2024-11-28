@@ -24,7 +24,7 @@ public class LibrarianController {
 		
 	}
 	public void addAudioBook(String title) {
-		library.addBook(new AudioBook(title));  // Book class constructor dependency
+		library.addBook((Book)new AudioBook(title));  // Book class constructor dependency
 	}
 	public void addRareBook(String title) {
 		library.addBook(new RareBook(title));  // Book class constructor dependency

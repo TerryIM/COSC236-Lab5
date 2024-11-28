@@ -12,7 +12,8 @@ public class AudioBook implements Book{
 	
 	
 	public AudioBook(String title) {
-		super(title);
+		this.title = title;
+		this.isAvailable = true;
 	}
 	
 	public String getTitle() {
