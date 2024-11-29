@@ -6,8 +6,18 @@ import java.util.Iterator;
 
 public class Library {
 	 
-	private ArrayList<Book> catalog = new ArrayList<>(); // Book dependency
-	private ArrayList<Member> members = new ArrayList<>(); // Member dependency
+	private ArrayList<Book> catalog; // Book dependency
+	private ArrayList<Member> members; // Member dependency
+	
+	public Library(){
+		catalog = new ArrayList<>();
+		members = new ArrayList<>();
+	}
+	
+	Library(ArrayList<Book> catalog, ArrayList<Member> members){
+		this.catalog = catalog;
+		this.members = members;
+	}
 	
 	public Member findMemberByName(String name) {
 		 for (Member member : members) {
@@ -45,7 +55,7 @@ public class Library {
 		Book book = findBookByTitle(title);
 		removeBook(book);
 	}
-	public void removeBook(PaperBook book) {
+	public void removeBook(Book book) {
 		if (book != null)
 			catalog.remove(book); // book stays with the member who has it
 	}
