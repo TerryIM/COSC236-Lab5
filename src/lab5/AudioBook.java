@@ -1,6 +1,6 @@
 package lab5;
 
-public class AudioBook extends PaperBook implements Book{
+public class AudioBook implements Book{
 	/*
 	 * Implement AudioBook Class: Similarly, create a class AudioBook that implements the Book interface and 
 	 * models an audio book available at the library. This class should also allow renting and returning by Member 
@@ -12,7 +12,8 @@ public class AudioBook extends PaperBook implements Book{
 	
 	
 	public AudioBook(String title) {
-		super(title);
+		this.title = title;
+		isAvailable = true;
 	}
 	
 	public String getTitle() {
