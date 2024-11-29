@@ -1,6 +1,6 @@
 package lab5;
 
-public class AudioBook implements Book{
+public class AudioBook extends PaperBook implements Book{
 	/*
 	 * Implement AudioBook Class: Similarly, create a class AudioBook that implements the Book interface and 
 	 * models an audio book available at the library. This class should also allow renting and returning by Member 
