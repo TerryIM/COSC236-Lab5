@@ -10,8 +10,14 @@ public class LibraryApp {
 	private static void addMember(String name) {
 		librarian.addMember(name);
 	}	
-	private static void addBook(String title) {
-		librarian.addBook(title);
+	private static void addPaperBook(String title) {
+		librarian.addPaperBook(title);
+	}
+	private static void addEBook(String title) {
+		librarian.addEBook(title);
+	}
+	private static void addAudioBook(String title) {
+		librarian.addAudioBook(title);
 	}
 	private static void borrowBook(String title, String name) {
 		librarian.borrowBookByMember(title, name);

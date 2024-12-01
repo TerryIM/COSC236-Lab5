@@ -6,8 +6,20 @@ import java.util.Iterator;
 
 public class Library {
 	 
-	private ArrayList<Book> catalog = new ArrayList<>(); // Book dependency
-	private ArrayList<Member> members = new ArrayList<>(); // Member dependency
+
+	private ArrayList<Book> catalog; // Book dependency
+	private ArrayList<Member> members; // Member dependency
+	
+	public Library(){
+		catalog = new ArrayList<>();
+		members = new ArrayList<>();
+	}
+	
+	Library(ArrayList<Book> catalog, ArrayList<Member> members){
+		this.catalog = catalog;
+		this.members = members;
+	}
+
 	
 	public Member findMemberByName(String name) {
 		 for (Member member : members) {
@@ -17,7 +29,7 @@ public class Library {
 	       }
 	       return null; // Return null if not found
 	}
-	public PaperBook findBookByTitle (String title) {
+	public Book findBookByTitle (String title) {
 		 for (Book book : catalog) {
 	           if (book.getTitle().equals(title)) {
 	               return (PaperBook) book; // Return the found book
@@ -42,10 +54,10 @@ public class Library {
 		}
 	}
 	public void removeBook(String title) {
-		PaperBook book = findBookByTitle(title);
+		Book book = findBookByTitle(title);
 		removeBook(book);
 	}
-	public void removeBook(PaperBook book) {
+	public void removeBook(Book book) {
 		if (book != null)
 			catalog.remove(book); // book stays with the member who has it
 	}
@@ -59,7 +71,7 @@ public class Library {
 	public void showBooks() {
 		Iterator<Book> bookIterator = catalog.iterator();
 	    while(bookIterator.hasNext()) {
-		   	 PaperBook book = (PaperBook) bookIterator.next();
+		   	 Book book = bookIterator.next();
 		   	 System.out.println(book); // book.toString()
 	    }
 	}
