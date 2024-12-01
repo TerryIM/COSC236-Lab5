@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 public class Library {
 	 
+
 	private ArrayList<Book> catalog; // Book dependency
 	private ArrayList<Member> members; // Member dependency
 	
@@ -18,6 +19,7 @@ public class Library {
 		this.catalog = catalog;
 		this.members = members;
 	}
+
 	
 	public Member findMemberByName(String name) {
 		 for (Member member : members) {
@@ -30,7 +32,7 @@ public class Library {
 	public Book findBookByTitle (String title) {
 		 for (Book book : catalog) {
 	           if (book.getTitle().equals(title)) {
-	               return book; // Return the found book
+	               return (PaperBook) book; // Return the found book
 	           }
 	       }
 	       return null; // Return null if not found

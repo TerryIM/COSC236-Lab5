@@ -13,7 +13,7 @@ public class AudioBook implements Book{
 	
 	public AudioBook(String title) {
 		this.title = title;
-		isAvailable = true;
+		this.isAvailable = true;
 	}
 	
 	public String getTitle() {

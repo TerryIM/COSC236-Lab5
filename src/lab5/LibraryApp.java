@@ -29,9 +29,10 @@ public class LibraryApp {
 	public static void main(String[] args) {
 						 	
 		System.out.println(" *** Library management system demo *** ");
+		Ebook Ebook = new Ebook("");
 		
 	    // Adding one book, see the Sequence diagram in the lab document.
-		addBook("Dune");
+		
 		
 		// TODO: Create three sequence diagrams for each of these method calls 
 		addMember("Alice"); 			// 1. Add a member
