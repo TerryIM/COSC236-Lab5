@@ -8,10 +8,11 @@ import org.junit.jupiter.api.Test;
 
 import lab5.Member;
 import lab5.Library;
+import lab5.BorrowingServices;
 import lab5.LibrarianController;
 
 class TestController {
-	
+	BorrowingServices borrowingServices = BorrowingServices.getInstance();
 	LibrarianController librarian;
 	Library library;
 	String memberName = "Alice";
