@@ -28,13 +28,16 @@ public class BorrowingServices implements BorrowingServicesAPI {
 			String msg = book.getTitle() + " is not currently available";
 			return new BorrowingBookResult(false, msg);
 		}
-		
+		//if user is borrowing the maximum amount of books
 		if (member.borrowedBooksCount() >= borrowingLimit) {
 			//Member cannot borrow the book
 			String msg = member.getName() + " has reached the maximum number of books (" + borrowingLimit + " books).";
 			return new BorrowingBookResult(false, msg);
 		}
-		
+		//if user is already borrowing the book
+		if(member.getBorrowedBooks().contains(book)) {
+			return new BorrowingBookResult(false, member.getName() + " is already borrowing " + book.getTitle());
+		}
 		String msg = member.getName() + " is borrowing book: " + book.getTitle(); 
 		//TODO modify Member class to allow this class to add to its ArrayList of borrowedBooks by creating a setBorrowedBooks(Book) method
 		member.getBorrowedBooks().add(book);
