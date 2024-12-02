@@ -30,16 +30,10 @@ public class Member{
 		return "Member: " + name;
 	}
 	public void borrowBook(Book book) {
-		if (book != null && book.getIsAvailable() == true) {
-			borrowedBooks.add(book);
-			book.setIsAvailable(false);
-		}
+		borrowingService.borrowBook(this, book);
 	}
 	public void returnBook(Book book) {
-		if (book != null) {
-			borrowedBooks.remove(book);
-			book.setIsAvailable(true);
-		}
+		borrowingService.returnBook(this, book);
 	}
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)

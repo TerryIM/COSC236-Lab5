@@ -21,21 +21,17 @@ public class BorrowingServices implements BorrowingServicesAPI {
 	
 	@Override
 	public BorrowingBookResult borrowBook(Member member, Book book) {
-		int maxBooks = 3;
-		
 		if (!book.getIsAvailable()) {
 			//Book is not available
 			String msg = book.getTitle() + " is not currently available";
 			return new BorrowingBookResult(false, msg);
 		}
 		
-		if (member.borrowedBooksCount() >= maxBooks) {
+		if (member.borrowedBooksCount() >= borrowingLimit) {
 			//Member cannot borrow the book
-			String msg = member.getName() + " has reached the maximum number of books (" + maxBooks + " books).";
+			String msg = member.getName() + " has reached the maximum number of books (" + borrowingLimit + " books).";
 			return new BorrowingBookResult(false, msg);
 		}
-		
-		
 		
 		String msg = "Borrowing book: " + book; 
 		//TODO modify Member class to allow this class to add to its ArrayList of borrowedBooks by creating a setBorrowedBooks(Book) method
