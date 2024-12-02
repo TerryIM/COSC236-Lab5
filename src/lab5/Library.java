@@ -37,12 +37,12 @@ public class Library {
 
 	public void addMember(Member member) {
 		members.add(member);
-		System.out.println(member + " has been added.");
+		System.out.println(member.getName() + " has been added.");
 	}
 
 	public void addBook(Book book) {
 		catalog.add(book);
-		System.out.println(book + " has been added to the catalog.");
+		System.out.println(book.getTitle() + " has been added to the catalog.");
 	}
 
 	public void removeMember(String name) {

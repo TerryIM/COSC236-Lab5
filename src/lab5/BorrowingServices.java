@@ -1,5 +1,7 @@
 package lab5;
 
+import java.util.Iterator;
+
 public class BorrowingServices implements BorrowingServicesAPI {
 	private static volatile BorrowingServices instance;	
 	private int borrowingLimit;
@@ -33,7 +35,7 @@ public class BorrowingServices implements BorrowingServicesAPI {
 			return new BorrowingBookResult(false, msg);
 		}
 		
-		String msg = "Borrowing book: " + book; 
+		String msg = member.getName() + " is borrowing book: " + book.getTitle(); 
 		//TODO modify Member class to allow this class to add to its ArrayList of borrowedBooks by creating a setBorrowedBooks(Book) method
 		member.getBorrowedBooks().add(book);
 		book.setIsAvailable(false);
@@ -50,13 +52,28 @@ public class BorrowingServices implements BorrowingServicesAPI {
 		}
 		
 		if(book.getIsAvailable() == false) {
-			String msg = book.getTitle() + " has already been returned";
+			String msg = member.getName() + " has already been returned " + book.getTitle() ;
 			return new BorrowingBookResult(false, msg);
 		}
 		
-		String msg = "Returning book: " + book; 
+		String msg = member.getName() + " is returning book: " + book.getTitle(); 
 		member.getBorrowedBooks().remove(book);
 		book.setIsAvailable(true);
 		return new BorrowingBookResult(true, msg); // Return true for success
 	}
+	
+	public BorrowingBookResult returnAllBooks(Member member) {
+		if(member.getBorrowedBooks().isEmpty()) {
+			return new BorrowingBookResult(false, member.getName() + " has not borrowed any books.");
+		}
+		Iterator<Book> bookIterator = member.getBorrowedBooks().iterator();
+		
+	    while(bookIterator.hasNext()) {
+		   	 Book book = bookIterator.next();
+		   	 book.setIsAvailable(true);
+	    }
+	    member.getBorrowedBooks().clear(); // clear array of borrowed books
+	    return new BorrowingBookResult(true, member.getName() + " has returned all books");
+	}
+	
 }

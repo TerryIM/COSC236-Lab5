@@ -61,7 +61,8 @@ public class LibraryApp {
 		librarian.showMemberBooks("Bob");
 		
 		System.out.println("\n *** Book returned by Alice: Dune");
-		librarian.returnBookByMember("Dune", "Alice");
+		//librarian.returnBookByMember("Dune", "Alice");
+		librarian.returnAllBooks("Alice");
 		librarian.borrowBookByMember("Dune", "Bob"); // will be successful
 		System.out.println("\n *** Books borrowed by Bob:");
 		librarian.showMemberBooks("Bob");

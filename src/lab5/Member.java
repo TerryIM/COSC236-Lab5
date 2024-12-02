@@ -30,10 +30,12 @@ public class Member{
 		return "Member: " + name;
 	}
 	public void borrowBook(Book book) {
-		borrowingService.borrowBook(this, book);
+		//borrowingService.borrowBook(this, book);
+		System.out.println(borrowingService.borrowBook(this, book).getBorrowingMessage());
 	}
 	public void returnBook(Book book) {
-		borrowingService.returnBook(this, book);
+		//borrowingService.returnBook(this, book);
+		System.out.println(borrowingService.returnBook(this, book).getBorrowingMessage());
 	}
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)
@@ -43,11 +45,7 @@ public class Member{
 		return borrowedBooks.size();
 	}
 	public void returnAllBooks() {
-		Iterator<Book> bookIterator = borrowedBooks.iterator();
-	    while(bookIterator.hasNext()) {
-		   	 Book book = bookIterator.next();
-		   	 book.setIsAvailable(true);
-	    }
-	    borrowedBooks.clear(); // clear array of borrowed books
+		//borrowingService.returnAllBooks(this);
+		System.out.println(borrowingService.returnAllBooks(this).getBorrowingMessage());
 	}
 }
