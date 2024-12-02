@@ -1,5 +1,5 @@
 package lab5;
 
-public interface BookFactory {
-
+abstract class BookFactory {
+	public abstract Book createBook(String title);	
 }

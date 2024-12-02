@@ -1,54 +1,60 @@
 package lab5;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class Member{
+public class Member {
 
 	private String name;
 	private ArrayList<Book> borrowedBooks; // Book class dependency
-	
-	public Member(String name) {
+	private BorrowingServices borrowingService; // Singleton
+
+	public Member(String name, BorrowingServices borrowingService) {
 		this.name = name;
+		this.borrowingService = borrowingService;
 		this.borrowedBooks = new ArrayList<>();
 	}
+
 	public String getName() {
 		return name;
 	}
-	public ArrayList<Book> getBorrowedBooks() { 
+
+	public ArrayList<Book> getBorrowedBooks() {
 		return borrowedBooks;
 	}
+
+	public void setBorrowedBooks(Book book) {
+		borrowedBooks.add(book);
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String toString() {
 		return "Member: " + name;
 	}
+
 	public void borrowBook(Book book) {
-		if (book != null && book.getIsAvailable() == true) {
-			borrowedBooks.add(book);
-			book.setIsAvailable(false);
-		}
+		// borrowingService.borrowBook(this, book);
+		System.out.println(borrowingService.borrowBook(this, book).getBorrowingMessage());
 	}
+
 	public void returnBook(Book book) {
-		if (book != null) {
-			borrowedBooks.remove(book);
-			book.setIsAvailable(true);
-		}
+		// borrowingService.returnBook(this, book);
+		System.out.println(borrowingService.returnBook(this, book).getBorrowingMessage());
 	}
+
 	public void listBorrowedBooks() {
 		for (Book book : borrowedBooks)
 			System.out.println(book); // book.toString()
 	}
+
 	public int borrowedBooksCount() {
 		return borrowedBooks.size();
 	}
+
 	public void returnAllBooks() {
-		Iterator<Book> bookIterator = borrowedBooks.iterator();
-	    while(bookIterator.hasNext()) {
-		   	 Book book = bookIterator.next();
-		   	 book.setIsAvailable(true);
-	    }
-	    borrowedBooks.clear(); // clear array of borrowed books
+		// borrowingService.returnAllBooks(this);
+		System.out.println(borrowingService.returnAllBooks(this).getBorrowingMessage());
 	}
 }
