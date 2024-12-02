@@ -22,20 +22,28 @@ public class LibrarianController {
 		library.showMembers();
 	}
 
+	public void addBook(BookFactory factory, String title) {
+		library.addBook(factory.createBook(title)); // Book type depends on the factory passed in
+	}
+
 	public void addPaperBook(String title) {
-		library.addBook(new PaperBook(title)); // Book class constructor dependency
+		PaperBookFactory paperBookFactory = new PaperBookFactory();
+		library.addBook(paperBookFactory.createBook(title));
 	}
 
 	public void addEBook(String title) {
-		library.addBook(new Ebook(title)); // Book class constructor dependency
+		EBookFactory eBookFactory = new EBookFactory();
+		library.addBook(eBookFactory.createBook(title));
 	}
 
 	public void addAudioBook(String title) {
-		library.addBook(new AudioBook(title)); // Book class constructor dependency
+		AudioBookFactory audioBookFactory = new AudioBookFactory();
+		library.addBook(audioBookFactory.createBook(title));
 	}
 
 	public void addRareBook(String title) {
-		library.addBook(new RareBook(title)); // Book class constructor dependency
+		RareBookFactory rareBookFactory = new RareBookFactory();
+		library.addBook(rareBookFactory.createBook(title));
 	}
 
 	public void addMember(String name) {
