@@ -6,22 +6,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import lab5.PaperBook;
+import lab5.BorrowingServices;
 import lab5.Library;
 import lab5.Member;
 
-
 class TestFindClassString {
 
-	
-private Library library;
-	
+	private Library library;
+	BorrowingServices borrowingServices = BorrowingServices.getInstance();
+
 	@BeforeEach
 	void setUp() throws Exception {
-		 this.library = new Library(); // empty library for each test
+		this.library = new Library(); // empty library for each test
 	}
-	
-	Member member1 = new Member("Dude");
-	Member member2 = new Member("Gal");
+
+	Member member1 = new Member("Dude", borrowingServices);
+	Member member2 = new Member("Gal", borrowingServices);
 	PaperBook book1 = new PaperBook("Dune");
 	PaperBook book2 = new PaperBook("1984");
 
@@ -37,7 +37,7 @@ private Library library;
 		member = library.findMemberByName(member2.getName());
 		assertNull(member, "The mmber should not hav ben found after removal from the library");
 		library.removeMember(member2);
-		assertEquals(library.membersCount(),  1, "Removal of a non-existent member should not affect library");
+		assertEquals(library.membersCount(), 1, "Removal of a non-existent member should not affect library");
 		library.removeMember(member1);
 		assertEquals(library.membersCount(), 0, "All members should have been removed");
 	}
@@ -46,16 +46,16 @@ private Library library;
 	void FindBook() {
 		library.addBook(book1);
 		library.addBook(book2);
-		PaperBook book = library.findBookByTitle(book1.getTitle());
-		assert(book == book1);
-		assert(library.booksCount() == 2);
+		PaperBook book = (PaperBook) library.findBookByTitle(book1.getTitle());
+		assert (book == book1);
+		assert (library.booksCount() == 2);
 		library.removeBook(book2);
-		assert(library.booksCount() == 1);
-		book = library.findBookByTitle(book2.getTitle());
-		assert(book == null);
+		assert (library.booksCount() == 1);
+		book = (PaperBook) library.findBookByTitle(book2.getTitle());
+		assert (book == null);
 		library.removeBook(book2);
-		assert(library.booksCount() == 1);
+		assert (library.booksCount() == 1);
 		library.removeBook(book1);
-		assert(library.booksCount() == 0);
+		assert (library.booksCount() == 0);
 	}
 }

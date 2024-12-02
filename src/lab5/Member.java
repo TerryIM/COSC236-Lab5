@@ -54,4 +54,7 @@ public class Member {
 	public void returnAllBooks() {
 		System.out.println(borrowingService.returnAllBooks(this).getBorrowingMessage());
 	}
+	public BorrowingServices getBorrowingService() {
+		return this.borrowingService;
+	}
 }
