@@ -47,12 +47,11 @@ public class LibrarianController {
 	}
 
 	public void addMember(String name) {
-		// TODO change Member class' Constructor and borrowBook() [Step 7.3]
 		library.addMember(new Member(name, borrowingService)); // Member class constructor dependency
 	}
 
 	public void removeBook(String title) {
-		library.removeBook(title); // remove
+		library.removeBook(title);
 	}
 
 	public void removeMember(String name) {

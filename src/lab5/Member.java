@@ -35,12 +35,10 @@ public class Member {
 	}
 
 	public void borrowBook(Book book) {
-		// borrowingService.borrowBook(this, book);
 		System.out.println(borrowingService.borrowBook(this, book).getBorrowingMessage());
 	}
 
 	public void returnBook(Book book) {
-		// borrowingService.returnBook(this, book);
 		System.out.println(borrowingService.returnBook(this, book).getBorrowingMessage());
 	}
 
@@ -54,7 +52,6 @@ public class Member {
 	}
 
 	public void returnAllBooks() {
-		// borrowingService.returnAllBooks(this);
 		System.out.println(borrowingService.returnAllBooks(this).getBorrowingMessage());
 	}
 }

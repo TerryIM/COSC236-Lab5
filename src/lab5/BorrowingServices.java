@@ -40,8 +40,6 @@ public class BorrowingServices implements BorrowingServicesAPI {
 			return new BorrowingBookResult(false, member.getName() + " is already borrowing " + book.getTitle());
 		}
 		String msg = member.getName() + " is borrowing book: " + book.getTitle();
-		// TODO modify Member class to allow this class to add to its ArrayList of
-		// borrowedBooks by creating a setBorrowedBooks(Book) method
 		member.getBorrowedBooks().add(book);
 		book.setIsAvailable(false);
 		return new BorrowingBookResult(true, msg); // Return true for success
@@ -77,7 +75,7 @@ public class BorrowingServices implements BorrowingServicesAPI {
 			Book book = bookIterator.next();
 			book.setIsAvailable(true);
 		}
-		member.getBorrowedBooks().clear(); // clear array of borrowed books
+		member.getBorrowedBooks().clear(); // clear list of borrowed books
 		return new BorrowingBookResult(true, member.getName() + " has returned all books");
 	}
 
