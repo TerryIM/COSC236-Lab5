@@ -23,7 +23,7 @@ public class AudioBook implements Book{
 		this.title = title;
 	}
 	public String toString() {
-		return "Book: " + title;
+		return "Audio Book: " + title;
 	}
 	public void setIsAvailable(boolean isAvailable) {
 		this.isAvailable = isAvailable;

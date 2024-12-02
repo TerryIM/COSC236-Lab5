@@ -33,17 +33,17 @@ public class LibraryApp {
 		
 	    // Adding one book, see the Sequence diagram in the lab document.
 		
-		
 		// TODO: Create three sequence diagrams for each of these method calls 
 		addMember("Alice"); 			// 1. Add a member
 		borrowBook("Dune", "Alice");  	// 2. Borrow a book
 		returnBook("Dune", "Alice"); 	// 3. Return book		
 		 
-	    // Adding some books to the catalog
+		// Adding some books to the catalog
 		System.out.println("\n *** Adding books to the library:");
-		librarian.addBook("Dune");
-		librarian.addBook("1984");
-		librarian.addBook("Moby Dick");
+		librarian.addEBook("Dune");
+		librarian.addAudioBook("1984");
+		librarian.addPaperBook("Moby Dick");
+		//librarian.showBooks();
 		
 		// Adding members to the library
 		System.out.println("\n *** Adding members to the library:");
@@ -57,7 +57,7 @@ public class LibraryApp {
 		
 		System.out.println("\n *** Books borrowed by Alice:");
 		librarian.showMemberBooks("Alice");
-		
+		System.out.println("\n *** Books borrowed by Bob:");
 		librarian.showMemberBooks("Bob");
 		
 		System.out.println("\n *** Book returned by Alice: Dune");

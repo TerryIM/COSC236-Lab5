@@ -6,7 +6,7 @@ public class Ebook implements Book{
 	
 	public Ebook(String title) {
 		this.title = title;
-		this.setAvailable(true);
+		this.isAvailable = true;
 	}
 	@Override
 	public String toString() {
@@ -14,23 +14,19 @@ public class Ebook implements Book{
 	}
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		return title;
 	}
 	@Override
 	public boolean getIsAvailable() {
-		// TODO Auto-generated method stub
-		return false;
+		return isAvailable;
 	}
 	@Override
 	public void setIsAvailable(boolean isAvailable) {
-		// TODO Auto-generated method stub
+		this.isAvailable = isAvailable;
 		
 	}
-	public boolean isAvailable() {
-		return isAvailable;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
-	}
+	
 }

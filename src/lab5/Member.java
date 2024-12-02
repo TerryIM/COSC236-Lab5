@@ -7,9 +7,11 @@ public class Member{
 
 	private String name;
 	private ArrayList<Book> borrowedBooks; // Book class dependency
+	private BorrowingServices borrowingService;
 	
-	public Member(String name) {
+	public Member(String name, BorrowingServices borrowingService) {
 		this.name = name;
+		this.borrowingService = borrowingService;
 		this.borrowedBooks = new ArrayList<>();
 	}
 	public String getName() {
@@ -17,6 +19,9 @@ public class Member{
 	}
 	public ArrayList<Book> getBorrowedBooks() { 
 		return borrowedBooks;
+	}
+	public void setBorrowedBooks(Book book) {
+		borrowedBooks.add(book);
 	}
 	public void setName(String name) {
 		this.name = name;

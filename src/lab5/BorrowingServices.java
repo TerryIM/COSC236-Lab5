@@ -38,8 +38,8 @@ public class BorrowingServices implements BorrowingServicesAPI {
 		
 		
 		String msg = "Borrowing book: " + book; 
-		//TODO modify Member class to allow this class to add to it's ArrayList of borrowedBooks by creating an setBorrowedBooks(Book) method
-		member.setBorrowedBooks(member.getBorrowedBooks().add(book));
+		//TODO modify Member class to allow this class to add to its ArrayList of borrowedBooks by creating a setBorrowedBooks(Book) method
+		member.getBorrowedBooks().add(book);
 		book.setIsAvailable(false);
 		return new BorrowingBookResult(true, msg); // Return true for success
 	}
